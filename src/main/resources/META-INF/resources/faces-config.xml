@@ -11,26 +11,55 @@
         <navigation-case>
             <from-outcome>goToMain</from-outcome>
             <to-view-id>/main.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
 
         <navigation-case>
             <from-outcome>goToProfile</from-outcome>
             <to-view-id>/profile.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
 
         <navigation-case>
             <from-outcome>goToPictures</from-outcome>
             <to-view-id>/pictures.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
 
         <navigation-case>
             <from-outcome>goToHistory</from-outcome>
             <to-view-id>/history.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
 
         <navigation-case>
             <from-outcome>goToAbout</from-outcome>
             <to-view-id>/about.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToContacts</from-outcome>
+            <to-view-id>/contacts.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToQuestion</from-outcome>
+            <to-view-id>question.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToInvalidPassword</from-outcome>
+            <to-view-id>invalidPassword.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToForgotPassword</from-outcome>
+            <to-view-id>forgotPassword.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
 
     </navigation-rule>
