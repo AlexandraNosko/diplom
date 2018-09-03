@@ -14,24 +14,29 @@
 <h:body>
     <p:layout fullPage="true">
 
-    <p:layoutUnit position="north">
-        <p:panelGrid columns="6">
-            <p:link value="Main" outcome="goToMain"/>
-            <p:link value="Pictures" outcome="goToPictures"/>
-            <p:link value="Profile" outcome="goToProfile"/>
-            <p:link value="History" outcome="goToHistory"/>
-            <p:link value="About" outcome="goToAbout"/>
-            <p:link value="Question" outcome="goToQuestion"/>
-        </p:panelGrid>
-    </p:layoutUnit>
+        <p:layoutUnit position="north">
+            <p:panelGrid columns="6">
+                <p:link value="Main" outcome="goToMain"/>
+                <p:link value="Pictures" outcome="goToPictures"/>
+                <p:link value="Profile" outcome="goToProfile"/>
+                <p:link value="History" outcome="goToHistory"/>
+                <p:link value="About" outcome="goToAbout"/>
+                <p:link value="Question" outcome="goToQuestion"/>
+            </p:panelGrid>
+        </p:layoutUnit>
 
         <p:layoutUnit position="center" header="Contacts">
+            <h4>Adress: Ukraine, Kyiv</h4>
             <h:form>
-                <p:panelGrid columns="2">
-                    <h3>
-                        Email:
-                    </h3>
-                </p:panelGrid>
+                <p:growl id="growl" showDetail="true" sticky="true"/>
+
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="msg" value="Leave Your Message:"/>
+                    <p:inputText id="msg" value="#{person.message}" required="true"/>
+                </h:panelGrid>
+
+                <p:commandButton value="Send" actionListener="#{main.saveMessage}" update="growl"/>
+
             </h:form>
         </p:layoutUnit>
     </p:layout>

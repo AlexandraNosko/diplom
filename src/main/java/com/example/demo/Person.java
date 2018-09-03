@@ -1,9 +1,14 @@
 package com.example.demo;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
 public class Person {
+
+    private String login;
 
     private int count;
 
@@ -15,19 +20,19 @@ public class Person {
 
     private String gender;
 
-    private String login;
-
-    private String password;
+//    private String login;
+//
+//    private String password;
 
     private String email;
 
-    public String checkPassword(){
-        if (password.equals("password")){
-            return "goToProfile";
-        } else {
-            return "goToInvalidPassword";
-        }
-    }
+//    public String checkPassword() {
+//        if (password.equals("password")) {
+//            return "goToProfile";
+//        } else {
+//            return "goToInvalidPassword";
+//        }
+//    }
 
     public String getEmail() {
         return email;
@@ -36,6 +41,7 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getLogin() {
         return login;
     }
@@ -43,14 +49,21 @@ public class Person {
     public void setLogin(String login) {
         this.login = login;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public String getLogin() {
+//        return login;
+//    }
+//
+//    public void setLogin(String login) {
+//        this.login = login;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public String getYear() {
         return year;
@@ -93,5 +106,24 @@ public class Person {
         this.surname = surname;
     }
 
+    //для отправки сообщения на сервер:
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
+
+//    public void saveMessage() {
+//        FacesContext context = FacesContext.getCurrentInstance();
+//
+//        context.addMessage(null, new FacesMessage("Successful", "Your message: " + message));
+//
+//    }
 
 }

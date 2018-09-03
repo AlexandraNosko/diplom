@@ -12,12 +12,12 @@
 </h:head>
 
 <h:body>
-
+    <p:growl id="growl1" life="5000" keepAlive="true" />
     <p:layout fullPage="true" >
 
         <p:layoutUnit position="north" resizable="true" closable="true" collapsible="true" >
 
-            <p:panelGrid columns="6" cellspacing="10" >
+            <p:panelGrid columns="6" cellspacing="10">
                 <p:link value="Pictures" outcome="goToPictures"/>
                 <p:link value="Profile" outcome="goToProfile"/>
                 <p:link value="History" outcome="goToHistory"/>
@@ -28,15 +28,15 @@
 
         </p:layoutUnit>
         <p:layoutUnit position="center" header="Login">
-            <h:form>
-                <p:panelGrid columns="2">
+            <h:form id="form1">
+                <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto;">
                     <p:outputLabel value="Name:"/>
-                    <p:inputText value="#{person.login}"/>
+                    <p:inputText value="#{main.login}"/>
 
                     <p:outputLabel value="Password:"/>
-                    <p:inputText value="#{person.password}"/>
+                    <p:inputText value="#{main.password}"/>
 
-                    <p:commandLink value="LOG IN" action="#{person.checkPassword}"/>
+                    <p:commandLink value="LOG IN" update="form1, growl1" action="#{main.checkPassword}"/>
 
                     <p:commandLink value="Forgot my password" action="goToForgotPassword"/>
                 </p:panelGrid>
