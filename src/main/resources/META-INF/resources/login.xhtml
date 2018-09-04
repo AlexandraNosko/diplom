@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Main</title>
+</h:head>
+
+<h:body>
+    <p:growl id="growl1" life="5000" keepAlive="true" />
+    <p:layout fullPage="true">
+
+        <p:layoutUnit position="center">
+            <h:form id="form1">
+                <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
+                    <p:outputLabel value="Name:"/>
+                    <p:inputText value="#{login.login}"/>
+
+                    <p:outputLabel value="Password:"/>
+                    <p:inputText value="#{login.password}"/>
+
+                </p:panelGrid>
+                <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto;">
+                    <p:commandLink value="LOG IN" update="form1, growl1" action="#{login.checkPassword}"/>
+                </p:panelGrid>
+
+            </h:form>
+        </p:layoutUnit>
+
+    </p:layout>
+</h:body>
+</html>
