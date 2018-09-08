@@ -7,44 +7,61 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
-        <title>Page 1</title>
-    </h:head>
+<h:head>
+    <title>Page 1</title>
+</h:head>
 
-    <h:body>
+<h:body>
 
-        <h:form>
-            <p:outputLabel value="Name"/>
-            <!--компонент ввода: -->
-            <p:inputText value="#{person.name}"/>
-            <br/>
+    <!--<h:form>-->
+    <!--<p:outputLabel value="Name"/>-->
+    <!--&lt;!&ndash;компонент ввода: &ndash;&gt;-->
+    <!--<p:inputText value="#{person.name}"/>-->
+    <!--<br/>-->
 
-            <!--Button и Link это одно и то же-->
-            <p:commandButton ajax="false"/>
-            <br/>
-            <p:commandLink ajax="felse" value="GO"/>
-        </h:form>
+    <!--&lt;!&ndash;Button и Link это одно и то же&ndash;&gt;-->
+    <!--<p:commandButton ajax="false"/>-->
+    <!--<br/>-->
+    <!--<p:commandLink ajax="felse" value="GO"/>-->
+    <!--</h:form>-->
 
-        <p:outputLabel value="#{person.name}"/>
-        <!--<br/>-->
-        <!--<p:outputLabel value="#{person.surname}"/>-->
-        <!--<br/>-->
-        <!--<p:outputLabel value="#{person.count}"/>-->
-
-
+    <!--<p:outputLabel value="#{person.name}"/>-->
+    <!--<br/>-->
+    <!--<p:outputLabel value="#{person.surname}"/>-->
+    <!--<br/>-->
+    <!--<p:outputLabel value="#{person.count}"/>-->
 
 
-        <!--<h:panelGrid columns="3" cellpadding="10" cellspacing="20">-->
-            <!--<p:link value="Link1" href="hello.xhtml"/>-->
-            <!--<p:link value="Link2" href="hello.xhtml"/>-->
-            <!--<p:link value="Link3" href="hello.xhtml"/>-->
+    <!--<h:panelGrid columns="3" cellpadding="10" cellspacing="20">-->
+    <!--<p:link value="Link1" href="hello.xhtml"/>-->
+    <!--<p:link value="Link2" href="hello.xhtml"/>-->
+    <!--<p:link value="Link3" href="hello.xhtml"/>-->
 
-        <!--</h:panelGrid>-->
+    <!--</h:panelGrid>-->
 
 
-        <!--<p:link value="Link1" target="_blank"-->
-                <!--href="http://localhost:8080/hello.xhtml"/>-->
-        <!--<br/>-->
-        <!--<p:link value="Link2" outcome="goToPage"/>-->
-    </h:body>
+    <!--<p:link value="Link1" target="_blank"-->
+    <!--href="http://localhost:8080/hello.xhtml"/>-->
+    <!--<br/>-->
+    <!--<p:link value="Link2" outcome="goToPage"/>-->
+
+    <p:selectOneMenu value="#{person.name}">
+        <f:selectItem itemLabel="111111111" itemValue="1"/>
+        <f:selectItem itemLabel="222222222" itemValue="2"/>
+        <f:selectItem itemLabel="333333333" itemValue="3"/>
+    </p:selectOneMenu>
+    <br/>
+    <br/>
+    <p:selectOneRadio value="#{person.name}" columns="1" layout="grid">
+        <f:selectItem itemLabel="111111111" itemValue="1"/>
+        <f:selectItem itemLabel="222222222" itemValue="2"/>
+        <f:selectItem itemLabel="333333333" itemValue="3"/>
+        <f:selectItem itemLabel="444444444" itemValue="4"/>
+    </p:selectOneRadio>
+    <br/>
+    <p:selectManyCheckbox>
+        <f:selectItem itemLabel="1111111" itemValue="1"/>
+        <f:selectItem itemLabel="2222222" itemValue="2"/>
+    </p:selectManyCheckbox>
+</h:body>
 </html>

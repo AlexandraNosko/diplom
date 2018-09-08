@@ -62,6 +62,18 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>goToQuestion2</from-outcome>
+            <to-view-id>question2.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToQuestion1</from-outcome>
+            <to-view-id>question1.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
     </navigation-rule>
 
 </faces-config>

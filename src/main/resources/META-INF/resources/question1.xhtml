@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Question</title>
+</h:head>
+
+<h:body>
+    <p:growl id="growl1"/>
+
+    <h:form id="form1">
+        <p:panelGrid columns="2" style="margin-right: auto; margin-left: auto; margin-top: 10%">
+            <p:outputLabel value="Имя"/>
+            <p:inputText value="#{question1.name}"/>
+
+            <p:outputLabel value="Фамилия"/>
+            <p:inputText value="#{question1.surname}"/>
+
+            <p:outputLabel value="Год рождения"/>
+            <p:selectOneMenu value="#{question1.yearOfBirth}">
+                <f:selectItem itemLabel="" itemValue="0"/>
+                <f:selectItem itemLabel="1980" itemValue="1"/>
+                <f:selectItem itemLabel="1981" itemValue="2"/>
+                <f:selectItem itemLabel="1982" itemValue="3"/>
+                <f:selectItem itemLabel="1983" itemValue="4"/>
+                <f:selectItem itemLabel="1984" itemValue="5"/>
+                <f:selectItem itemLabel="1985" itemValue="6"/>
+                <f:selectItem itemLabel="1986" itemValue="7"/>
+                <f:selectItem itemLabel="1987" itemValue="8"/>
+                <f:selectItem itemLabel="1988" itemValue="9"/>
+                <f:selectItem itemLabel="1989" itemValue="10"/>
+                <f:selectItem itemLabel="1990" itemValue="11"/>
+            </p:selectOneMenu>
+            <p:outputLabel value="Пол"/>
+            <p:selectOneRadio value="#{question1.gender}" columns="1" layout="grid">
+                <f:selectItem itemLabel="мужской" itemValue="1"/>
+                <f:selectItem itemLabel="женский" itemValue="2"/>
+            </p:selectOneRadio>
+            <p:outputLabel value="Язык которым ты свободно владеешь"/>
+            <p:selectManyCheckbox value="#{question1.language}">
+                <f:selectItem itemLabel="украинский" itemValue="1"/>
+                <f:selectItem itemLabel="русский" itemValue="2"/>
+                <f:selectItem itemLabel="английский" itemValue="3"/>
+            </p:selectManyCheckbox>
+            <br/>
+            <p:commandLink action="#{question1.goToNextPage}" update="form1,growl1" value="Дальше"/>
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>
