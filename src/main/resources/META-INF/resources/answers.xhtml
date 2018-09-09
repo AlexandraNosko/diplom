@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Answers</title>
+</h:head>
+
+<h:body>
+
+    <h:form id="form1">
+
+        <p:panelGrid columns="2" style="margin-right: auto; margin-left: auto; margin-top: 5%">
+
+            <p:outputLabel value="Имя "/>
+            <p:outputLabel value="#{question1.name}"/>
+
+            <p:outputLabel value="Фамалия "/>
+            <p:outputLabel value="#{question1.surname}"/>
+
+            <p:outputLabel value="Год рождения "/>
+            <p:outputLabel value="#{question1.yearOfBirth}"/>
+
+            <p:outputLabel value="Пол "/>
+            <p:outputLabel value="#{question1.gender}"/>
+
+            <p:outputLabel value="Язык "/>
+            <p:outputLabel value="#{question1.language}"/>
+
+            <p:outputLabel value="Домашнее животное "/>
+            <p:outputLabel value="#{question2.pets}" />
+
+            <p:outputLabel value="Кличка питомца "/>
+            <p:outputLabel value="#{question2.name}"/>
+
+            <p:outputLabel value="Возраст питомца "/>
+            <p:outputLabel value="#{question2.year}"/>
+
+            <p:outputLabel value="Любимый город "/>
+            <p:outputLabel value="#{question3.city}"/>
+
+            <p:outputLabel value="Любимая еда "/>
+            <p:outputLabel value="#{question3.food}"/>
+
+            <p:outputLabel value="Любимый цвет "/>
+            <p:outputLabel value="#{question3.color}"/>
+
+            <p:outputLabel value="Больше любит смотреть "/>
+            <p:outputLabel value="#{question3.moviesOr}"/>
+
+            <p:outputLabel value="Любимое время года "/>
+            <p:outputLabel value="#{question3.season}"/>
+
+        </p:panelGrid>
+
+    </h:form>
+
+</h:body>
+
+</html>

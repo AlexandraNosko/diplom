@@ -56,31 +56,32 @@ public class Question1 {
 
     public String goToNextPage() {
         if (name != null && name.equals("")) {
-            cleanFields();
+            //cleanFields();
             sendMessage("Введите имя");
             return null;
         }
 
-        if (yearOfBirth != null && yearOfBirth.equals("")) {
-            cleanFields();
-            sendMessage("Выбрать дату рождения");
-            return null;
-        }
-
-        if (gender != null && gender.equals("")) {
-            cleanFields();
-            sendMessage("Выбрать пол");
-            return null;
-        }
-
         if (surname != null && surname.equals("")) {
-            cleanFields();
+            //cleanFields();
             sendMessage("Введите фамилию");
             return null;
         }
 
+        if (yearOfBirth != null && yearOfBirth.equals("0")) {
+           // cleanFields();
+            sendMessage("Выбрать год рождения");
+            return null;
+        }
+
+        if (gender != null && gender.equals("")) {
+           // cleanFields();
+            sendMessage("Выбрать пол");
+            return null;
+        }
+
+
         if (language != null && language.length == 0) {
-            cleanFields();
+           // cleanFields();
             sendMessage("Выбрать язык");
             return null;
         }
@@ -88,13 +89,13 @@ public class Question1 {
         return "goToQuestion2";
     }
 
-    private void cleanFields() {
+   /* private void cleanFields() {
         name = "";
         yearOfBirth = "";
         gender = "";
         surname = "";
         language = new String[] {};
-    }
+    }*/
 
     public void sendMessage(String message) {
         FacesContext context = FacesContext.getCurrentInstance();

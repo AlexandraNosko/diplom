@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Favourite things</title>
+</h:head>
+
+<h:body>
+    <p:growl id="growl1"/>
+
+    <h:form id="form1">
+
+        <p:panelGrid columns="2" style="margin-right: auto; margin-left: auto; margin-top: 10%">
+
+            <p:outputLabel value="Любимое время года"/>
+            <p:selectManyCheckbox value="#{question3.season}">
+                <f:selectItem itemLabel="зима" itemValue="1"/>
+                <f:selectItem itemLabel="весна" itemValue="2"/>
+                <f:selectItem itemLabel="лето" itemValue="3"/>
+                <f:selectItem itemLabel="осень" itemValue="4"/>
+            </p:selectManyCheckbox>
+
+            <p:outputLabel value="Любимый город"/>
+            <p:inputText value="#{question3.city}"/>
+
+            <p:outputLabel value="Любимое блюдо"/>
+            <p:inputText value="#{question3.food}"/>
+
+            <p:outputLabel value="Предпочитаешь смотреть"/>
+            <p:selectOneRadio value="#{question3.moviesOr}" columns="1" layout="grid">
+                <f:selectItem itemLabel="фильмы" itemValue="1"/>
+                <f:selectItem itemLabel="мультфильмы" itemValue="2"/>
+            </p:selectOneRadio>
+
+            <p:outputLabel value="Любимый цвет"/>
+            <p:selectOneMenu value="#{question3.color}">
+                <f:selectItem itemLabel="" itemValue="0"/>
+                <f:selectItem itemLabel="жёлтый" itemValue="1"/>
+                <f:selectItem itemLabel="синий" itemValue="2"/>
+                <f:selectItem itemLabel="зеленый" itemValue="3"/>
+                <f:selectItem itemLabel="красный" itemValue="4"/>
+                <f:selectItem itemLabel="черный" itemValue="5"/>
+            </p:selectOneMenu>
+
+
+            <p:link value="Назад" outcome="goToQuestion2"/>
+            <p:commandLink action="#{question3.goToNextPage}" update="form1,growl1" value="Закончить"/>
+        </p:panelGrid>
+
+    </h:form>
+</h:body>
+</html>
