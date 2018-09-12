@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Car</title>
+</h:head>
+
+<h:body>
+    <p:growl id="growl1"/>
+
+    <h:form id="form1">
+        <p:panelGrid columns="2" style="margin-right: auto; margin-left: auto; margin-top: 5%">
+
+            <p:outputLabel value="Model"/>
+            <p:selectOneMenu value="#{carPage.model}">
+                <f:selectItem itemLabel="" itemValue="0"/>
+                <f:selectItem itemLabel="TOYOTA" itemValue="1"/>
+                <f:selectItem itemLabel="AUDI" itemValue="2"/>
+            </p:selectOneMenu>
+
+            <p:outputLabel value="Year"/>
+            <p:inputText value="#{carPage.year}"/>
+
+            <p:outputLabel value="Engine"/>
+            <p:inputText value="#{carPage.engine}"/>
+
+            <p:outputLabel value="Color"/>
+            <p:selectOneMenu value="#{carPage.color}">
+                <f:selectItem itemLabel="" itemValue=""/>
+                <f:selectItem itemLabel="white" itemValue="white"/>
+                <f:selectItem itemLabel="black" itemValue="black"/>
+                <f:selectItem itemLabel="yellow" itemValue="yellow"/>
+            </p:selectOneMenu>
+
+            <p:outputLabel value="Wheels"/>
+            <p:inputText value="#{carPage.wheels}"/>
+
+
+            <p:commandLink action="#{carPage.saveCar}" value="Ok" update="car"/>
+        </p:panelGrid>
+    <br/>
+
+        <p:dataTable id="car" var="car" value="#{carPage.findAllCars()}">
+            <p:column headerText="Model">
+                <h:outputText value="#{car.model}" />
+            </p:column>
+
+            <p:column headerText="Year">
+                <h:outputText value="#{car.year}" />
+            </p:column>
+
+            <p:column headerText="Engine">
+                <h:outputText value="#{car.engine}" />
+            </p:column>
+
+            <p:column headerText="Color">
+                <h:outputText value="#{car.color}" />
+            </p:column>
+
+            <p:column headerText="Wheels">
+                <h:outputText value="#{car.wheels}" />
+            </p:column>
+
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
