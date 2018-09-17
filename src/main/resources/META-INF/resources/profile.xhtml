@@ -12,6 +12,15 @@
 </h:head>
 
 <h:body>
+    <p:dataTable var="user" value="#{profilePage.findAllUsers()}">
+        <p:column headerText="Логин">
+            <h:outputText value="#{user.name}" />
+        </p:column>
+
+        <p:column headerText="Пароль">
+            <h:outputText value="#{user.password}" />
+        </p:column>
+    </p:dataTable>
 
 </h:body>
 </html>

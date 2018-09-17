@@ -10,7 +10,13 @@
 
         <navigation-case>
             <from-outcome>goToProfile</from-outcome>
-            <to-view-id>profile.xhtml</to-view-id>
+            <to-view-id>/profile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToLogin</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
 
