@@ -11,10 +11,10 @@
     <title>Registration</title>
 </h:head>
 
-<h:body>
+<h:body style="background-color: darkgrey">
     <p:growl id="growl1" life="5000" keepAlive="true"/>
-    <p:layout fullPage="true">
-        <p:layoutUnit position="center">
+    <!--<p:layout>-->
+        <!--<p:layoutUnit position="center">-->
             <h:form id="form1">
                 <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
                     <p:outputLabel value="Имя:"/>
@@ -27,14 +27,15 @@
                     <p:inputText value="#{registrationPage.verifyPassword}"/>
 
                 </p:panelGrid>
+                <br/>
                 <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto;">
                     <p:commandLink value="Регистрация" update="form1, growl1"
                                    action="#{registrationPage.saveUserInformation}"/>
                 </p:panelGrid>
 
             </h:form>
-        </p:layoutUnit>
-    </p:layout>
+        <!--</p:layoutUnit>-->
+    <!--</p:layout>-->
 
 </h:body>
 </html>

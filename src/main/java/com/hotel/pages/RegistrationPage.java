@@ -1,12 +1,13 @@
-package com.example.demo;
+package com.hotel.pages;
 
+import com.hotel.models.Registration;
+import com.hotel.repositories.RegistrationRepository;
 import org.springframework.data.domain.Example;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.List;
 import java.util.Optional;
 
 @Named
@@ -18,7 +19,6 @@ public class RegistrationPage {
     private String name;
     private String password;
     private String verifyPassword;
-
 
     public String getName() {
         return name;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.hotel.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

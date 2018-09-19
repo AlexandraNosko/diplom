@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.hotel.pages;
 
+import com.hotel.models.Registration;
+import com.hotel.repositories.RegistrationRepository;
 import org.springframework.data.domain.Example;
 
 import javax.faces.application.FacesMessage;
@@ -10,9 +12,6 @@ import java.util.Optional;
 
 @Named
 public class LoginPage {
-
-    @Inject
-    private RegistrationPage registrationPage;
 
     @Inject
     private RegistrationRepository registrationRepository;
