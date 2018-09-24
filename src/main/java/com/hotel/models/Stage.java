@@ -1,9 +1,6 @@
 package com.hotel.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -13,9 +10,10 @@ public class Stage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "stage")
     private List<Room> rooms;
-    private String number;
 
+    private String number;
 
     public List<Room> getRooms() {
         return rooms;

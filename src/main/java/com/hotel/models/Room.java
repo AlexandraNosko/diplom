@@ -1,9 +1,6 @@
 package com.hotel.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Room {
@@ -16,7 +13,18 @@ public class Room {
 
     private RoomType roomType;
 
+    @ManyToOne
+    private Stage stage;
+
     private String free;
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     public String getNumber() {
         return number;
