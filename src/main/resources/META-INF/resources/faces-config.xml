@@ -20,6 +20,12 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>goToMenu</from-outcome>
+            <to-view-id>/menu.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
     </navigation-rule>
 
 </faces-config>
