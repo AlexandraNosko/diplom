@@ -19,36 +19,24 @@
 
         <p:layout fullPage="true">
             <p:layoutUnit position="west" resizable="true" closable="true" collapsible="true">
-                <p:panelMenu style="width:300px">
-                    <p:submenu label="Ajax Menuitems">
-                        <p:menuitem value="Save" actionListener="#{menu.save}" icon="ui-icon-disk"/>
-                        <p:menuitem value="Update" actionListener="#{menu.update}" icon="ui-icon-arrowrefresh-1-w"/>
-                    </p:submenu>
-                    <p:submenu label="Non-Ajax Menuitem">
-                        <p:menuitem value="Delete" actionListener="#{menu.delete}" ajax="false" icon="ui-icon-close"/>
-                    </p:submenu>
-                    <p:separator/>
-                    <p:submenu label="Navigations">
-                        <p:submenu label="Links" icon="ui-icon-extlink">
-                            <p:submenu label="PrimeFaces" icon="ui-icon-heart">
-                                <p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon-home"/>
-                                <p:menuitem value="Docs" url="http://www.primefaces.org/documentation"
-                                            icon="ui-icon-document"/>
-                                <p:menuitem value="Download" url="http://www.pri mefaces.org/downloads"
-                                            icon="ui-icon-arrowthick-1-s"/>
-                                <p:menuitem value="Support" url="http://www.primefaces.org/support"
-                                            icon="ui-icon-wrench"/>
-                            </p:submenu>
-                        </p:submenu>
-                        <p:menuitem value="Mobile" icon="ui-icon-signal"/>
-                    </p:submenu>
+                <p:panelMenu style="width:300px" model="#{menuPage.menu}">
                 </p:panelMenu>
 
             </p:layoutUnit>
             <p:layoutUnit position="center">
 
                 <p:layoutUnit position="center" resizable="true" closable="true" collapsible="true">
-
+                    <div class="ui-g">
+                        <div class="ui-g-12">Комната</div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-6">Тип комнаты</div>
+                        <div class="ui-g-6">6</div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-6">Число проживающих</div>
+                        <div class="ui-g-6">6</div>
+                    </div>
                 </p:layoutUnit>
 
                 <p:layout>

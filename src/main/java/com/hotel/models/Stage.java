@@ -10,7 +10,7 @@ public class Stage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "stage", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "stage", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Room> rooms;
 
     private String number;
