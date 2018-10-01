@@ -17,6 +17,11 @@
             <p:autoUpdate/>
         </p:growl>
 
+        <f:metadata>
+            <f:viewParam name="room" value="#{menuPage.selectedRoomNumber}"/>
+            <f:viewAction action="#{menuPage.selectRoomFromDatabase}"/>
+        </f:metadata>
+
         <p:layout fullPage="true">
             <p:layoutUnit position="west" resizable="true" closable="true" collapsible="true">
                 <p:panelMenu style="width:300px" model="#{menuPage.menu}">
