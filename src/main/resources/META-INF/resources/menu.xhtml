@@ -45,21 +45,23 @@
                 </p:panelMenu>
 
             </p:layoutUnit>
-            <p:layoutUnit position="center" resizable="true" closable="true" collapsible="true">
+            <p:layoutUnit position="center">
 
                 <p:layoutUnit position="center" resizable="true" closable="true" collapsible="true">
 
                 </p:layoutUnit>
 
                 <p:layout>
-                    <p:layoutUnit position="south" resizable="true" closable="true" collapsible="true">
-                        <h:panelGrid columns="5" cellpadding="5">
+                    <p:layoutUnit position="south">
+
+                        <h:panelGrid columns="5" cellpadding="5" style="padding-bottom: 5%;
+                        margin-left: auto; margin-right: auto">
                             <p:outputLabel value="Дата заезда:"/>
                             <p:calendar value="#{calendarView.date1}" mode="inline"/>
                             <p:outputLabel value="Дата выезда:"/>
                             <p:calendar value="#{calendarView.date1}" mode="inline"/>
+                            <p:commandButton value="Забронировать" icon="ui-icon-check" />
                         </h:panelGrid>
-                        <p:commandButton value="Забронировать" icon="ui-icon-check" />
                     </p:layoutUnit>
 
 
