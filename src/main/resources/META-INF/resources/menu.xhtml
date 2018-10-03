@@ -10,7 +10,6 @@
 <h:head>
     <title>Menu</title>
 </h:head>
-
 <h:body>
     <h:form>
         <p:growl>
@@ -22,47 +21,69 @@
             <f:viewAction action="#{menuPage.selectRoomFromDatabase}"/>
         </f:metadata>
 
-        <p:layout fullPage="true">
+        <p:layout fullPage="true" style="border-collapse: collapse">
             <p:layoutUnit position="west" resizable="true" closable="true" collapsible="true">
                 <p:panelMenu style="width:300px" model="#{menuPage.menu}">
                 </p:panelMenu>
 
             </p:layoutUnit>
-            <p:layoutUnit position="center">
+            <p:layoutUnit position="center" style="border-collapse: collapse">
 
                 <p:layoutUnit position="center" resizable="true" closable="true" collapsible="true">
                     <div class="ui-g">
-                        <div class="ui-g-12">Комната</div>
+                        <div class="ui-g-2" style="padding-top: 20px; padding-bottom: 30px; margin-left: auto;
+                    margin-right: auto">
+                            Комната
+                            <p:outputLabel value="#{menuPage.selectedRoomNumber}"/>
+                        </div>
                     </div>
+
                     <div class="ui-g">
-                        <div class="ui-g-6">Тип комнаты</div>
-                        <div class="ui-g-6">6</div>
+                        <div class="ui-g-6">Тип комнаты:
+                            <p:outputLabel value=" "/>
+                        </div>
+                        <div class="ui-g-6" style="">
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <p:selectManyCheckbox columns="2" layout="grid">
+                                    <f:selectItem itemLabel="Требуется уборка" itemValue="1"/>
+                                </p:selectManyCheckbox>
+                                <p:commandButton value="отправить CMC"/>
+                                <p:calendar value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss"/>
+                            </h:panelGrid>
+                        </div>
                     </div>
                     <div class="ui-g">
                         <div class="ui-g-6">Число проживающих</div>
-                        <div class="ui-g-6">6</div>
                     </div>
+                    <div class="ui-g">
+                        <div class="ui-g-6">
+                            <p:lightBox styleClass="imagebox">
+                                <h:outputLink value="diplom/src/main/resources/images/persone.jpg" title="persone">
+                                    <h:graphicImage style="height: 100%; width: 20%"
+                                                    src="src/main/resources/images/persone.ipg">
+                                    </h:graphicImage>
+                                </h:outputLink>
+                            </p:lightBox>
+                        </div>
+                    </div>
+
                 </p:layoutUnit>
 
                 <p:layout>
-                    <p:layoutUnit position="south">
-
-                        <h:panelGrid columns="5" cellpadding="5" style="padding-bottom: 5%;
+                    <p:layoutUnit position="south" style="border-collapse: collapse">
+                        <h:panelGrid columns="5" cellpadding="5" style="height: 250px;
                         margin-left: auto; margin-right: auto">
-                            <p:outputLabel value="Дата заезда:"/>
+                            <h:outputLabel value="Дата заезда:"/>
                             <p:calendar value="#{calendarView.date1}" mode="inline"/>
-                            <p:outputLabel value="Дата выезда:"/>
+                            <h:outputLabel value="Дата выезда:"/>
                             <p:calendar value="#{calendarView.date1}" mode="inline"/>
-                            <p:commandButton value="Забронировать" icon="ui-icon-check" />
+                            <p:commandButton value="Забронировать"
+                                             icon="ui-icon-check"/>
                         </h:panelGrid>
                     </p:layoutUnit>
-
-
                 </p:layout>
-
             </p:layoutUnit>
         </p:layout>
     </h:form>
-
 </h:body>
 </html>

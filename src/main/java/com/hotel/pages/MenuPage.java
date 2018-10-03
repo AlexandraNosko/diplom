@@ -58,7 +58,6 @@ public class MenuPage {
         Optional<Room> roomOptinal = roomRepository.findOne(Example.of(example));
         if (roomOptinal.isPresent()) {
             selectedRoom = roomOptinal.get();
-            System.out.println("AAAAAAAA " + selectedRoom.getNumber());
         }
     }
 
