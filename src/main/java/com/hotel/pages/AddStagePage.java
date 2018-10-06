@@ -45,10 +45,8 @@ public class AddStagePage {
         return "goToMenu";
     }
 
-
     public void sendMessage(String message) {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
-
     }
 }

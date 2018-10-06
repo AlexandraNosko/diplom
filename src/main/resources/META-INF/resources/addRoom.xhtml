@@ -3,25 +3,37 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>Add Room</title>
 </h:head>
 
 <h:body>
+    <p:growl id="groul"/>
     <h:form>
         <p:panelGrid columns="2">
-            <p:outputLabel value="Тип комнаты:"/>
-            <p:selectOneMenu>
 
+            <p:outputLabel value="Номер комнаты:"/>
+            <p:inputText value="#{addRoomPage.roomNumber}"/>
+
+            <p:outputLabel value="Тип комнаты:"/>
+            <p:selectOneMenu value="#{addRoomPage.roomType}">
+                <f:selectItem itemLabel=""/>
+                <f:selectItem itemLabel="VIP"/>
+                <f:selectItem itemLabel="STANDART"/>
+                <f:selectItem itemLabel="ECONOM"/>
             </p:selectOneMenu>
+
             <p:outputLabel value="Количество мест:"/>
-            <p:inputText value=""/>
+            <p:inputText value="#{addRoomPage.freeBerth}"/>
+
+            <p:outputLabel value="Этаж:"/>
+            <p:inputText value="#{addRoomPage.stage}"/>
         </p:panelGrid>
 
         <p:panelGrid columns="1">
-            <p:commandLink value="Добавить комнату" action=""/>
+            <p:commandLink value="Добавить комнату" update="groul" action="#{addRoomPage.addRoom}"/>
         </p:panelGrid>
 
     </h:form>

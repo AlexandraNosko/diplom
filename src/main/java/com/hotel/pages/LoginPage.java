@@ -42,20 +42,20 @@ public class LoginPage {
 
         room1.setNumber("100");
         room1.setRoomType(RoomType.ECONOM);
-        room1.setFree("2");
+        room1.setFreeBerth("2");
         room1.setStage(stage);
 
         room2.setNumber("101");
         room2.setRoomType(RoomType.ECONOM);
-        room2.setFree("3");
+        room2.setFreeBerth("3");
         room2.setStage(stage);
         room3.setNumber("102");
         room3.setRoomType(RoomType.ECONOM);
-        room3.setFree("3");
+        room3.setFreeBerth("3");
         room3.setStage(stage);
         room4.setNumber("103");
         room4.setRoomType(RoomType.STANDART);
-        room4.setFree("2");
+        room4.setFreeBerth("2");
         room4.setStage(stage);
 
         stageRepository.save(stage);
@@ -81,20 +81,20 @@ public class LoginPage {
 
         room1.setNumber("200");
         room1.setRoomType(RoomType.STANDART);
-        room1.setFree("2");
+        room1.setFreeBerth("2");
         room1.setStage(stage);
 
         room2.setNumber("201");
         room2.setRoomType(RoomType.STANDART);
-        room2.setFree("2");
+        room2.setFreeBerth("2");
         room2.setStage(stage);
         room3.setNumber("202");
         room3.setRoomType(RoomType.STANDART);
-        room3.setFree("3");
+        room3.setFreeBerth("3");
         room3.setStage(stage);
         room4.setNumber("203");
         room4.setRoomType(RoomType.STANDART);
-        room4.setFree("5");
+        room4.setFreeBerth("5");
         room4.setStage(stage);
 
         stageRepository.save(stage);
@@ -110,12 +110,12 @@ public class LoginPage {
 
         room1.setNumber("300");
         room1.setRoomType(RoomType.VIP);
-        room1.setFree("2");
+        room1.setFreeBerth("2");
         room1.setStage(stage);
 
         room2.setNumber("301");
         room2.setRoomType(RoomType.VIP);
-        room2.setFree("3");
+        room2.setFreeBerth("3");
         room2.setStage(stage);
 
         stageRepository.save(stage);

@@ -10,7 +10,7 @@
 </h:head>
 
 <h:body>
-    <p:growl />
+    <p:growl id="groul"/>
     <h1>Новый этаж</h1>
        <h:form>
         <p:panelGrid columns="2">
@@ -19,7 +19,7 @@
         </p:panelGrid>
 
         <p:panelGrid columns="1">
-            <p:commandLink value="Добавить этаж" action="#{addStagePage.addStage}"/>
+            <p:commandLink value="Добавить этаж" update="groul" action="#{addStagePage.addStage}"/>
         </p:panelGrid>
 
     </h:form>

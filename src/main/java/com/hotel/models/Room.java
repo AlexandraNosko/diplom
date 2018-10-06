@@ -16,7 +16,7 @@ public class Room {
     @ManyToOne
     private Stage stage;
 
-    private String free;
+    private String freeBerth;
 
     public Stage getStage() {
         return stage;
@@ -50,11 +50,11 @@ public class Room {
         this.id = id;
     }
 
-    public String getFree() {
-        return free;
+    public String getFreeBerth() {
+        return freeBerth;
     }
 
-    public void setFree(String free) {
-        this.free = free;
+    public void setFreeBerth(String free) {
+        this.freeBerth = free;
     }
 }

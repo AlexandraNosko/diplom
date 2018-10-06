@@ -92,5 +92,7 @@ public class MenuPage {
     public void setMenu(DefaultMenuModel menu) {
         this.menu = menu;
     }
+
+
 }
 
