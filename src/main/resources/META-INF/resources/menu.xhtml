@@ -108,16 +108,16 @@
                 <p:inputText value="#{addStagePage.stageNumber}"/>
             </p:panelGrid>
 
-            <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto">
+            <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto; margin-top: 30px">
                 <p:commandLink value="Добавить этаж" action="#{addStagePage.addStage}"/>
             </p:panelGrid>
 
         </h:form>
     </p:dialog>
 
-    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="800" height="200">
+    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="800" height="300">
         <h:form>
-            <p:panelGrid columns="2">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
 
                 <p:outputLabel value="Номер комнаты:"/>
                 <p:inputText value="#{addRoomPage.roomNumber}"/>
@@ -137,7 +137,7 @@
                 <p:inputText value="#{addRoomPage.stage}"/>
             </p:panelGrid>
 
-            <p:panelGrid columns="1">
+            <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto; margin-top: 30px">
                 <p:commandLink value="Добавить комнату" action="#{addRoomPage.addRoom}"/>
             </p:panelGrid>
 

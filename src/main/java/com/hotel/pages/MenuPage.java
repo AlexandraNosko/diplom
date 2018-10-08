@@ -93,14 +93,6 @@ public class MenuPage {
         this.menu = menu;
     }
 
-    public String goToAddStage() {
-        return "goToAddStage";
-    }
-
-    public String goToAddRoom() {
-        return "goToAddRoom";
-    }
-
 
 }
 
