@@ -26,6 +26,17 @@
             <redirect/>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>goToAddStage</from-outcome>
+            <to-view-id>/addStage.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>goToAddRoom</from-outcome>
+            <to-view-id>/addRoom.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
 
 </faces-config>

@@ -69,7 +69,7 @@ public class AddRoomPage {
             sendMessage("Введите номер комнаты");
             return null;
         }
-        if (roomType != null && roomType.equals("")){
+        if (roomType != null && roomType.equals(" ")){
             sendMessage("Введите тип комнаты");
             return null;
         }
