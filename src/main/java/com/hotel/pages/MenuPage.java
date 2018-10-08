@@ -10,12 +10,14 @@ import org.primefaces.model.menu.DefaultSubMenu;
 import org.springframework.data.domain.Example;
 
 import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 import java.util.Optional;
 
 @Named
+@ViewScoped
 public class MenuPage {
 
     @Inject
@@ -38,6 +40,10 @@ public class MenuPage {
         for (Stage stage : stages) {
             DefaultSubMenu stageMenu = new DefaultSubMenu(stage.getNumber());
             menu.addElement(stageMenu);
+
+            if (stage.getRooms() == null) {
+                continue;
+            }
 
             for (Room room : stage.getRooms()) {
                 DefaultMenuItem itemRoom = new DefaultMenuItem(room.getNumber());

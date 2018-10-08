@@ -5,14 +5,19 @@ import com.hotel.repositories.StageRepository;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
+@ViewScoped
 public class AddStagePage {
 
     @Inject
     private StageRepository stageRepository;
+
+    @Inject
+    private MenuPage menuPage;
 
     private String stageNumber;
 
@@ -42,6 +47,7 @@ public class AddStagePage {
         stage.setNumber(stageNumber);
         stageRepository.save(stage);
         sendMessage("Этаж успешно сохранен");
+        menuPage.init();
         return "goToMenu";
     }
 
