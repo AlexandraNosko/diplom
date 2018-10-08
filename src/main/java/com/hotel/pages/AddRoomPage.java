@@ -4,17 +4,26 @@ import com.hotel.models.Room;
 import com.hotel.models.RoomType;
 import com.hotel.models.Stage;
 import com.hotel.repositories.RoomRepository;
+import com.hotel.repositories.StageRepository;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.HashMap;
+import java.util.Map;
 
 @Named
+@ViewScoped
 public class AddRoomPage {
 
     @Inject
     private RoomRepository roomRepository;
+
+    @Inject
+    private StageRepository stageRepository;
 
     private String roomNumber;
 
@@ -23,6 +32,25 @@ public class AddRoomPage {
     private String freeBerth;
 
     private Stage stage;
+
+    private String selectedStageId;
+
+    private Map<String, String> stageList = new HashMap<>();
+
+    @PostConstruct
+    public void init() {
+        for (Stage stage : stageRepository.findAll()) {
+            stageList.put(stage.getNumber(), String.valueOf(stage.getId()));
+        }
+    }
+
+    public Map<String, String> getStageList() {
+        return stageList;
+    }
+
+    public void setStageList(Map<String, String> stageList) {
+        this.stageList = stageList;
+    }
 
     public RoomRepository getRoomRepository() {
         return roomRepository;
@@ -54,6 +82,14 @@ public class AddRoomPage {
 
     public void setFreeBerth(String freeBerth) {
         this.freeBerth = freeBerth;
+    }
+
+    public String getSelectedStageId() {
+        return selectedStageId;
+    }
+
+    public void setSelectedStageId(String selectedStageId) {
+        this.selectedStageId = selectedStageId;
     }
 
     public Stage getStage() {
