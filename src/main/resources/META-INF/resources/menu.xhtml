@@ -53,7 +53,7 @@
                                     <f:selectItem itemLabel="Требуется уборка" itemValue="1"/>
                                 </p:selectManyCheckbox>
                                 <p:commandButton value="отправить CMC"/>
-                                <p:calendar value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss"/>
+                                <p:calendar value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm"/>
                             </h:panelGrid>
                         </div>
                     </div>
@@ -73,13 +73,17 @@
                     </div>
                     <div class="ui-g" style="margin-top: 30px">
                         <div class="ui-g-4">Дата заселения:
-                            <p:outputLabel value="#{menuPage.selectedRoom.arrivalDate}"/>
+                            <p:outputLabel value="#{menuPage.selectedRoom.arrivalDate}">
+                                <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
+                            </p:outputLabel>
                         </div>
                         <div class="ui-g-4">Осталось дней до выселения:</div>
                     </div>
                     <div class="ui-g">
                         <div class="ui-g-6">Дата выселения:
-                            <p:outputLabel value="#{menuPage.selectedRoom.departureDate}"/>
+                            <p:outputLabel value="#{menuPage.selectedRoom.departureDate}">
+                                <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
+                            </p:outputLabel>
                         </div>
                     </div>
                     <div class="ui-g" style="margin-top: 30px">
@@ -144,8 +148,8 @@
                 <p:inputText value="#{addRoomPage.freeBerth}"/>
 
             </p:panelGrid>
-                <p:commandButton value="Добавить комнату" action="#{addRoomPage.addRoom}"
-                                 style="margin-top: 50px; margin-left: 40%"/>
+            <p:commandButton value="Добавить комнату" action="#{addRoomPage.addRoom}"
+                             style="margin-top: 50px; margin-left: 40%"/>
         </h:form>
     </p:dialog>
 
