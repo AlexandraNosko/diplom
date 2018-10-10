@@ -47,6 +47,8 @@ public class LoginPage {
         room1.setGuestsCount(2);
         room1.setRoomType(RoomType.ECONOM);
         room1.setFreeBerth("2");
+        room1.setCost(400);
+        room1.setPaid(400);
         room1.setStage(stage);
 
         room2.setNumber("101");
@@ -55,6 +57,8 @@ public class LoginPage {
         room2.setGuestsCount(3);
         room2.setRoomType(RoomType.ECONOM);
         room2.setFreeBerth("3");
+        room2.setCost(500);
+        room2.setPaid(400);
         room2.setStage(stage);
 
         room3.setNumber("102");
@@ -63,6 +67,8 @@ public class LoginPage {
         room3.setGuestsCount(3);
         room3.setRoomType(RoomType.ECONOM);
         room3.setFreeBerth("3");
+        room3.setCost(500);
+        room3.setPaid(400);
         room3.setStage(stage);
 
         room4.setNumber("103");
@@ -71,6 +77,8 @@ public class LoginPage {
         room4.setGuestsCount(2);
         room4.setRoomType(RoomType.STANDART);
         room4.setFreeBerth("2");
+        room4.setCost(550);
+        room4.setPaid(400);
         room4.setStage(stage);
 
         stageRepository.save(stage);
@@ -100,6 +108,8 @@ public class LoginPage {
         room1.setGuestsCount(2);
         room1.setRoomType(RoomType.STANDART);
         room1.setFreeBerth("2");
+        room1.setCost(550);
+        room1.setPaid(400);
         room1.setStage(stage);
 
         room2.setNumber("201");
@@ -108,6 +118,8 @@ public class LoginPage {
         room2.setGuestsCount(2);
         room2.setRoomType(RoomType.STANDART);
         room2.setFreeBerth("2");
+        room2.setCost(600);
+        room2.setPaid(400);
         room2.setStage(stage);
 
         room3.setNumber("202");
@@ -116,6 +128,8 @@ public class LoginPage {
         room3.setGuestsCount(3);
         room3.setRoomType(RoomType.STANDART);
         room3.setFreeBerth("3");
+        room3.setCost(700);
+        room3.setPaid(400);
         room3.setStage(stage);
 
         room4.setNumber("203");
@@ -124,6 +138,8 @@ public class LoginPage {
         room4.setGuestsCount(4);
         room4.setRoomType(RoomType.STANDART);
         room4.setFreeBerth("5");
+        room4.setCost(900);
+        room4.setPaid(400);
         room4.setStage(stage);
 
         stageRepository.save(stage);
@@ -143,6 +159,8 @@ public class LoginPage {
         room1.setGuestsCount(2);
         room1.setRoomType(RoomType.VIP);
         room1.setFreeBerth("2");
+        room1.setCost(700);
+        room1.setPaid(400);
         room1.setStage(stage);
 
         room2.setNumber("301");
@@ -151,6 +169,8 @@ public class LoginPage {
         room2.setGuestsCount(3);
         room2.setRoomType(RoomType.VIP);
         room2.setFreeBerth("3");
+        room2.setCost(900);
+        room2.setPaid(400);
         room2.setStage(stage);
 
         stageRepository.save(stage);

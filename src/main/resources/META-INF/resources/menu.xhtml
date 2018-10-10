@@ -87,8 +87,12 @@
                         </div>
                     </div>
                     <div class="ui-g" style="margin-top: 30px">
-                        <div class="ui-g-4">Оплачено:</div>
-                        <div class="ui-g-4">Осталось оплатить:</div>
+                        <div class="ui-g-4">Оплачено:
+                            <p:outputLabel value="#{menuPage.selectedRoom.paid}"/>
+                        </div>
+                        <div class="ui-g-4">Осталось оплатить:
+
+                        </div>
                     </div>
 
                 </p:layoutUnit>
@@ -124,12 +128,12 @@
         </h:form>
     </p:dialog>
 
-    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="800" height="300">
+    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="800" height="350">
         <h:form id="addRoomDialogForm">
             <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
 
                 <p:outputLabel value="Этаж:"/>
-                <p:selectOneMenu value="#{addRoomPage.selectedStageId}">
+                <p:selectOneMenu value="#{addRoomPage.selectedStageId}" style="width: 82%">
                     <f:selectItems value="#{addRoomPage.stageList}}"/>
                 </p:selectOneMenu>
 
@@ -137,7 +141,7 @@
                 <p:inputText value="#{addRoomPage.roomNumber}"/>
 
                 <p:outputLabel value="Тип комнаты:"/>
-                <p:selectOneMenu value="#{addRoomPage.roomType}">
+                <p:selectOneMenu value="#{addRoomPage.roomType}" style="width: 82%">
                     <f:selectItem itemLabel=" " itemValue=" "/>
                     <f:selectItem itemLabel="VIP" itemValue="VIP"/>
                     <f:selectItem itemLabel="STANDART" itemValue="STANDART"/>
@@ -146,6 +150,16 @@
 
                 <p:outputLabel value="Количество мест:"/>
                 <p:inputText value="#{addRoomPage.freeBerth}"/>
+
+                <p:outputLabel value="Количество гостей:"/>
+                <p:inputText value="#{addRoomPage.guestsCount}"/>
+
+                <p:outputLabel value="Стоимость номера:"/>
+                <p:inputText value="#{addRoomPage.cost}"/>
+
+                <p:outputLabel value="Оплачено:"/>
+                <p:inputText value="#{addRoomPage.paid}"/>
+
 
             </p:panelGrid>
             <p:commandButton value="Добавить комнату" action="#{addRoomPage.addRoom}"

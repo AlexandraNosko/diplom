@@ -31,6 +31,12 @@ public class AddRoomPage {
 
     private String freeBerth;
 
+    private Integer cost;
+
+    private Integer guestsCount;
+
+    private Integer paid;
+
     private Stage stage;
 
     private String selectedStageId;
@@ -100,6 +106,39 @@ public class AddRoomPage {
         this.stage = stage;
     }
 
+    public StageRepository getStageRepository() {
+        return stageRepository;
+    }
+
+    public void setStageRepository(StageRepository stageRepository) {
+        this.stageRepository = stageRepository;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
+    public Integer getGuestsCount() {
+        return guestsCount;
+    }
+
+    public void setGuestsCount(Integer guestsCount) {
+        this.guestsCount = guestsCount;
+    }
+
+    public Integer getPaid() {
+        return paid;
+    }
+
+    public void setPaid(Integer paid) {
+        this.paid = paid;
+    }
+
+
     public String addRoom() {
         if (roomNumber != null && roomNumber.equals("")) {
             sendMessage("Введите номер комнаты");
@@ -126,6 +165,9 @@ public class AddRoomPage {
         room.setStage(stage);
         room.setRoomType(roomType);
         room.setFreeBerth(freeBerth);
+        room.setCost(cost);
+        room.setPaid(paid);
+        room.setGuestsCount(guestsCount);
         roomRepository.save(room);
         sendMessage("Комната успешно сохранена");
         return "goToMenu";

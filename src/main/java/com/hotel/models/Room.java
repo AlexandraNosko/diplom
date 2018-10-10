@@ -12,6 +12,8 @@ public class Room {
 
     private String number;
 
+    private Integer cost;
+
     private RoomType roomType;
 
     @ManyToOne
@@ -25,8 +27,26 @@ public class Room {
 
     private String freeBerth;
 
+    private Integer paid;
+
+    public Integer getPaid() {
+        return paid;
+    }
+
+    public void setPaid(Integer paid) {
+        this.paid = paid;
+    }
+
     public Date getArrivalDate() {
         return arrivalDate;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
     }
 
     public void setArrivalDate(Date arrivalDate) {
