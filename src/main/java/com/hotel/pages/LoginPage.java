@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @Named
@@ -41,19 +42,33 @@ public class LoginPage {
         stage.getRooms().add(room4);
 
         room1.setNumber("100");
+        room1.setArrivalDate(new Date());
+        room1.setDepartureDate(new Date());
+        room1.setGuestsCount(2);
         room1.setRoomType(RoomType.ECONOM);
         room1.setFreeBerth("2");
         room1.setStage(stage);
 
         room2.setNumber("101");
+        room2.setArrivalDate(new Date());
+        room2.setDepartureDate(new Date());
+        room2.setGuestsCount(3);
         room2.setRoomType(RoomType.ECONOM);
         room2.setFreeBerth("3");
         room2.setStage(stage);
+
         room3.setNumber("102");
+        room3.setArrivalDate(new Date());
+        room3.setDepartureDate(new Date());
+        room3.setGuestsCount(3);
         room3.setRoomType(RoomType.ECONOM);
         room3.setFreeBerth("3");
         room3.setStage(stage);
+
         room4.setNumber("103");
+        room4.setArrivalDate(new Date());
+        room4.setDepartureDate(new Date());
+        room4.setGuestsCount(2);
         room4.setRoomType(RoomType.STANDART);
         room4.setFreeBerth("2");
         room4.setStage(stage);
@@ -80,19 +95,33 @@ public class LoginPage {
         stage.getRooms().add(room4);
 
         room1.setNumber("200");
+        room1.setArrivalDate(new Date());
+        room1.setDepartureDate(new Date());
+        room1.setGuestsCount(2);
         room1.setRoomType(RoomType.STANDART);
         room1.setFreeBerth("2");
         room1.setStage(stage);
 
         room2.setNumber("201");
+        room2.setArrivalDate(new Date());
+        room2.setDepartureDate(new Date());
+        room2.setGuestsCount(2);
         room2.setRoomType(RoomType.STANDART);
         room2.setFreeBerth("2");
         room2.setStage(stage);
+
         room3.setNumber("202");
+        room3.setArrivalDate(new Date());
+        room3.setDepartureDate(new Date());
+        room3.setGuestsCount(3);
         room3.setRoomType(RoomType.STANDART);
         room3.setFreeBerth("3");
         room3.setStage(stage);
+
         room4.setNumber("203");
+        room4.setArrivalDate(new Date());
+        room4.setDepartureDate(new Date());
+        room4.setGuestsCount(4);
         room4.setRoomType(RoomType.STANDART);
         room4.setFreeBerth("5");
         room4.setStage(stage);
@@ -109,11 +138,17 @@ public class LoginPage {
         stage.getRooms().add(room2);
 
         room1.setNumber("300");
+        room1.setArrivalDate(new Date());
+        room1.setDepartureDate(new Date());
+        room1.setGuestsCount(2);
         room1.setRoomType(RoomType.VIP);
         room1.setFreeBerth("2");
         room1.setStage(stage);
 
         room2.setNumber("301");
+        room2.setArrivalDate(new Date());
+        room2.setDepartureDate(new Date());
+        room2.setGuestsCount(3);
         room2.setRoomType(RoomType.VIP);
         room2.setFreeBerth("3");
         room2.setStage(stage);

@@ -117,11 +117,15 @@ public class AddRoomPage {
             sendMessage("Введите номер этажа");
             return null;
         }
+
+        stageRepository.findAll();
+        Stage stage = stageRepository.findById(1L).get();
+
         Room room = new Room();
         room.setNumber(roomNumber);
+        room.setStage(stage);
         room.setRoomType(roomType);
         room.setFreeBerth(freeBerth);
-        room.setStage(stage);
         roomRepository.save(room);
         sendMessage("Комната успешно сохранена");
         return "goToMenu";

@@ -1,6 +1,7 @@
 package com.hotel.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Room {
@@ -16,7 +17,37 @@ public class Room {
     @ManyToOne
     private Stage stage;
 
+    private Integer guestsCount;
+
+    private Date arrivalDate;
+
+    private Date departureDate;
+
     private String freeBerth;
+
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public Date getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public Integer getGuestsCount() {
+        return guestsCount;
+    }
+
+    public void setGuestsCount(Integer guestsCount) {
+        this.guestsCount = guestsCount;
+    }
 
     public Stage getStage() {
         return stage;

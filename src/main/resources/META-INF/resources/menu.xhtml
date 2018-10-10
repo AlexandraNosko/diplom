@@ -45,7 +45,7 @@
 
                     <div class="ui-g">
                         <div class="ui-g-6">Тип комнаты:
-                            <p:outputLabel value=" "/>
+                            <p:outputLabel value="#{menuPage.selectedRoom.roomType}"/>
                         </div>
                         <div class="ui-g-6" style="">
                             <h:panelGrid columns="2" cellpadding="5">
@@ -58,7 +58,9 @@
                         </div>
                     </div>
                     <div class="ui-g">
-                        <div class="ui-g-6">Число проживающих:</div>
+                        <div class="ui-g-6">Число проживающих:
+                            <p:outputLabel value="#{menuPage.selectedRoom.guestsCount}"/>
+                        </div>
                     </div>
                     <div class="ui-g">
                         <div class="ui-g-6">
@@ -70,11 +72,15 @@
                         </div>
                     </div>
                     <div class="ui-g" style="margin-top: 30px">
-                        <div class="ui-g-4">Дата заселения:</div>
+                        <div class="ui-g-4">Дата заселения:
+                            <p:outputLabel value="#{menuPage.selectedRoom.arrivalDate}"/>
+                        </div>
                         <div class="ui-g-4">Осталось дней до выселения:</div>
                     </div>
                     <div class="ui-g">
-                        <div class="ui-g-6">Дата выселения:</div>
+                        <div class="ui-g-6">Дата выселения:
+                            <p:outputLabel value="#{menuPage.selectedRoom.departureDate}"/>
+                        </div>
                     </div>
                     <div class="ui-g" style="margin-top: 30px">
                         <div class="ui-g-4">Оплачено:</div>
@@ -107,10 +113,9 @@
                 <p:outputLabel value="Номер этажа:"/>
                 <p:inputText value="#{addStagePage.stageNumber}"/>
             </p:panelGrid>
+            <p:commandButton value="Добавить этаж" action="#{addStagePage.addStage}"
+                             style="margin-left: 41%; margin-top: 30px"/>
 
-            <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto; margin-top: 30px">
-                <p:commandLink value="Добавить этаж" action="#{addStagePage.addStage}"/>
-            </p:panelGrid>
 
         </h:form>
     </p:dialog>
@@ -121,14 +126,14 @@
 
                 <p:outputLabel value="Этаж:"/>
                 <p:selectOneMenu value="#{addRoomPage.selectedStageId}">
-                    <f:selectItems value="#{addRoomPage.stageList}}" />
+                    <f:selectItems value="#{addRoomPage.stageList}}"/>
                 </p:selectOneMenu>
 
                 <p:outputLabel value="Номер комнаты:"/>
                 <p:inputText value="#{addRoomPage.roomNumber}"/>
 
                 <p:outputLabel value="Тип комнаты:"/>
-                <p:selectOneMenu  value="#{addRoomPage.roomType}">
+                <p:selectOneMenu value="#{addRoomPage.roomType}">
                     <f:selectItem itemLabel=" " itemValue=" "/>
                     <f:selectItem itemLabel="VIP" itemValue="VIP"/>
                     <f:selectItem itemLabel="STANDART" itemValue="STANDART"/>
@@ -139,10 +144,8 @@
                 <p:inputText value="#{addRoomPage.freeBerth}"/>
 
             </p:panelGrid>
-
-            <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto; margin-top: 30px">
-                <p:commandLink value="Добавить комнату" action="#{addRoomPage.addRoom}"/>
-            </p:panelGrid>
+                <p:commandButton value="Добавить комнату" action="#{addRoomPage.addRoom}"
+                                 style="margin-top: 50px; margin-left: 40%"/>
         </h:form>
     </p:dialog>
 
