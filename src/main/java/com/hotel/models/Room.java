@@ -25,7 +25,7 @@ public class Room {
 
     private Date departureDate;
 
-    private String freeBerth;
+    private Integer totalNumberOfSeats;
 
     private Integer paid;
 
@@ -65,6 +65,37 @@ public class Room {
         return guestsCount;
     }
 
+    public Integer getDaysLeftToDearture() {
+        if (departureDate == null) {
+            return 0;
+        }
+
+        int daysdiff = 0;
+        long diff = departureDate.getTime() - new Date().getTime();
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+        daysdiff = (int) diffDays;
+        return daysdiff;
+    }
+
+    public Integer getMoneyLeftToPaid() {
+        if (cost != null && paid != null) {
+            return cost - paid;
+        } else {
+            return 0;
+        }
+    }
+
+    public boolean isBusy() {
+        return arrivalDate != null && departureDate != null;
+    }
+    public Integer getTotalNumberOfSeats() {
+        return totalNumberOfSeats;
+    }
+
+    public void setTotalNumberOfSeats(Integer totalNumberOfSeats) {
+        this.totalNumberOfSeats = totalNumberOfSeats;
+    }
+
     public void setGuestsCount(Integer guestsCount) {
         this.guestsCount = guestsCount;
     }
@@ -99,13 +130,5 @@ public class Room {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getFreeBerth() {
-        return freeBerth;
-    }
-
-    public void setFreeBerth(String free) {
-        this.freeBerth = free;
     }
 }

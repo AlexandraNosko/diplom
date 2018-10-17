@@ -6,6 +6,7 @@ import com.hotel.models.RoomType;
 import com.hotel.models.Stage;
 import com.hotel.repositories.RegistrationRepository;
 import com.hotel.repositories.StageRepository;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.data.domain.Example;
 
 import javax.annotation.PostConstruct;
@@ -42,43 +43,39 @@ public class LoginPage {
         stage.getRooms().add(room4);
 
         room1.setNumber("100");
-        room1.setArrivalDate(new Date());
-        room1.setDepartureDate(new Date());
+        room1.setArrivalDate(DateUtils.addDays(new Date(), -20));
+        room1.setDepartureDate(DateUtils.addDays(new Date(), 20));
         room1.setGuestsCount(2);
         room1.setRoomType(RoomType.ECONOM);
-        room1.setFreeBerth("2");
+        room1.setTotalNumberOfSeats(6);
         room1.setCost(400);
         room1.setPaid(400);
         room1.setStage(stage);
 
         room2.setNumber("101");
-        room2.setArrivalDate(new Date());
-        room2.setDepartureDate(new Date());
+        room2.setArrivalDate(DateUtils.addDays(new Date(), -4));
+        room2.setDepartureDate(DateUtils.addDays(new Date(), 5));
         room2.setGuestsCount(3);
         room2.setRoomType(RoomType.ECONOM);
-        room2.setFreeBerth("3");
+        room2.setTotalNumberOfSeats(6);
         room2.setCost(500);
         room2.setPaid(400);
         room2.setStage(stage);
 
         room3.setNumber("102");
-        room3.setArrivalDate(new Date());
-        room3.setDepartureDate(new Date());
-        room3.setGuestsCount(3);
+        room3.setGuestsCount(0);
         room3.setRoomType(RoomType.ECONOM);
-        room3.setFreeBerth("3");
+        room3.setTotalNumberOfSeats(6);
         room3.setCost(500);
-        room3.setPaid(400);
+        room3.setPaid(0);
         room3.setStage(stage);
 
         room4.setNumber("103");
-        room4.setArrivalDate(new Date());
-        room4.setDepartureDate(new Date());
-        room4.setGuestsCount(2);
+        room4.setGuestsCount(0);
         room4.setRoomType(RoomType.STANDART);
-        room4.setFreeBerth("2");
+        room4.setTotalNumberOfSeats(2);
         room4.setCost(550);
-        room4.setPaid(400);
+        room4.setPaid(0);
         room4.setStage(stage);
 
         stageRepository.save(stage);
@@ -103,43 +100,39 @@ public class LoginPage {
         stage.getRooms().add(room4);
 
         room1.setNumber("200");
-        room1.setArrivalDate(new Date());
-        room1.setDepartureDate(new Date());
+        room1.setArrivalDate(DateUtils.addDays(new Date(), -7));
+        room1.setDepartureDate(DateUtils.addDays(new Date(), 5));
         room1.setGuestsCount(2);
         room1.setRoomType(RoomType.STANDART);
-        room1.setFreeBerth("2");
+        room1.setTotalNumberOfSeats(3);
         room1.setCost(550);
         room1.setPaid(400);
         room1.setStage(stage);
 
         room2.setNumber("201");
-        room2.setArrivalDate(new Date());
-        room2.setDepartureDate(new Date());
+        room2.setArrivalDate(DateUtils.addDays(new Date(), -9));
+        room2.setDepartureDate(DateUtils.addDays(new Date(), 1));
         room2.setGuestsCount(2);
         room2.setRoomType(RoomType.STANDART);
-        room2.setFreeBerth("2");
+        room2.setTotalNumberOfSeats(3);
         room2.setCost(600);
         room2.setPaid(400);
         room2.setStage(stage);
 
         room3.setNumber("202");
-        room3.setArrivalDate(new Date());
-        room3.setDepartureDate(new Date());
-        room3.setGuestsCount(3);
+        room3.setGuestsCount(0);
         room3.setRoomType(RoomType.STANDART);
-        room3.setFreeBerth("3");
+        room3.setTotalNumberOfSeats(4);
         room3.setCost(700);
-        room3.setPaid(400);
+        room3.setPaid(0);
         room3.setStage(stage);
 
         room4.setNumber("203");
-        room4.setArrivalDate(new Date());
-        room4.setDepartureDate(new Date());
-        room4.setGuestsCount(4);
+        room4.setGuestsCount(0);
         room4.setRoomType(RoomType.STANDART);
-        room4.setFreeBerth("5");
+        room4.setTotalNumberOfSeats(4);
         room4.setCost(900);
-        room4.setPaid(400);
+        room4.setPaid(0);
         room4.setStage(stage);
 
         stageRepository.save(stage);
@@ -154,23 +147,21 @@ public class LoginPage {
         stage.getRooms().add(room2);
 
         room1.setNumber("300");
-        room1.setArrivalDate(new Date());
-        room1.setDepartureDate(new Date());
-        room1.setGuestsCount(2);
+        room1.setGuestsCount(0);
         room1.setRoomType(RoomType.VIP);
-        room1.setFreeBerth("2");
-        room1.setCost(700);
-        room1.setPaid(400);
+        room1.setTotalNumberOfSeats(2);
+        room1.setCost(2000);
+        room1.setPaid(0);
         room1.setStage(stage);
 
         room2.setNumber("301");
-        room2.setArrivalDate(new Date());
+        room2.setArrivalDate(DateUtils.addDays(new Date(), -5));
         room2.setDepartureDate(new Date());
         room2.setGuestsCount(3);
         room2.setRoomType(RoomType.VIP);
-        room2.setFreeBerth("3");
-        room2.setCost(900);
-        room2.setPaid(400);
+        room2.setTotalNumberOfSeats(5);
+        room2.setCost(3000);
+        room2.setPaid(2500);
         room2.setStage(stage);
 
         stageRepository.save(stage);

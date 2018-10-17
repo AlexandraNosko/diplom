@@ -8,10 +8,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 
 @Named
 @ViewScoped
-public class AddStagePage {
+public class AddStagePage implements Serializable {
 
     @Inject
     private StageRepository stageRepository;

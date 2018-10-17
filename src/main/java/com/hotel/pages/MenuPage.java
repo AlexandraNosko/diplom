@@ -13,12 +13,13 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 @Named
 @ViewScoped
-public class MenuPage {
+public class MenuPage implements Serializable {
 
     @Inject
     private StageRepository stageRepository;
@@ -46,7 +47,7 @@ public class MenuPage {
             }
 
             for (Room room : stage.getRooms()) {
-                DefaultMenuItem itemRoom = new DefaultMenuItem(room.getNumber());
+                DefaultMenuItem itemRoom = new DefaultMenuItem(createRoomTitle(room));
                 itemRoom.setUrl("menu.xhtml?room=" + room.getNumber());
                 stageMenu.addElement(itemRoom);
             }
@@ -65,6 +66,17 @@ public class MenuPage {
         if (roomOptinal.isPresent()) {
             selectedRoom = roomOptinal.get();
         }
+    }
+
+    private String createRoomTitle(Room room) {
+        String prefix = " (" + room.getRoomType().toString().substring(0, 1) + ")";
+        if (room.isBusy()) {
+            prefix += " проживает " + room.getGuestsCount() + " гостей";
+        } else {
+            prefix += " свободна - " + room.getTotalNumberOfSeats() + " мест";
+        }
+
+        return room.getNumber() + prefix;
     }
 
     public String getSelectedRoomNumber() {
