@@ -36,8 +36,8 @@
                 <h:form>
                     <div class="ui-g">
                         <div class="ui-g-2"
-                             style="padding-top: 20px; padding-bottom: 30px; margin-left: auto; margin-right: auto">
-                            <h2>Комната #{menuPage.selectedRoomNumber}</h2>
+                             style="padding-top: 5px; padding-bottom: 5px; margin-left: auto; margin-right: auto">
+                            <h3>Комната #{menuPage.selectedRoomNumber}</h3>
                         </div>
                     </div>
 
@@ -45,13 +45,12 @@
                         <div class="ui-g-6">Тип комнаты:
                             <p:outputLabel value="#{menuPage.selectedRoom.roomType}"/>
                         </div>
-                        <div class="ui-g-6" style="">
+                        <div class="ui-g-6">
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:selectManyCheckbox columns="2" layout="grid">
                                     <f:selectItem itemLabel="Требуется уборка" itemValue="1"/>
                                 </p:selectManyCheckbox>
-                                <p:commandButton value="отправить CMC"/>
-                                <p:calendar value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm"/>
+                                <p:button value="отправить CMC" onclick="PF('callCleaning').show(); return false;"/>
                             </h:panelGrid>
                         </div>
                     </div>
@@ -86,7 +85,12 @@
                             </p:outputLabel>
                         </div>
                     </div>
-                    <div class="ui-g" style="margin-top: 30px">
+                    <div class="ui-g" style="margin-top: 10px">
+                        <div class="ui-g-4">Стоимость номера:
+                            <p:outputLabel value="#{menuPage.selectedRoom.cost} грн."/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
                         <div class="ui-g-4">Оплачено:
                             <p:outputLabel value="#{menuPage.selectedRoom.paid} грн."/>
                         </div>
@@ -118,6 +122,23 @@
         </p:layoutUnit>
     </p:layout>
 
+    <p:dialog widgetVar="callCleaning" modal="true" closable="true" resizable="true"
+              width="800" height="200">
+        <h:form>
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+                <p:outputLabel value="Номер комнаты:"/>
+                <p:outputLabel value="#{menuPage.selectedRoomNumber}"/>
+                <p:outputLabel value="Номер телефона:"/>
+                <p:selectOneMenu value="#{menuPage.phoneNumber}" style="width: 82%">
+                    <f:selectItem itemValue="+380636548313" itemLabel="+380636548313"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Дата уборки:"/>
+                <p:calendar value="#{calendarView.date10}" pattern="dd/mm/yyyy HH:mm"/>
+            </p:panelGrid>
+            <p:commandButton value="Вызвать уборщицу"
+                             style="margin-left: 41%; margin-top: 30px"/>
+        </h:form>
+    </p:dialog>
 
     <p:dialog widgetVar="addStageDialog" modal="true" closable="true" resizable="true" width="800" height="200">
         <h:form>

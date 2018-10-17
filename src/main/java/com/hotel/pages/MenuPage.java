@@ -33,6 +33,8 @@ public class MenuPage implements Serializable {
 
     private Room selectedRoom;
 
+    private String phoneNumber;
+
     @PostConstruct
     public void init() {
         menu = new DefaultMenuModel();
@@ -111,6 +113,12 @@ public class MenuPage implements Serializable {
         this.menu = menu;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
 
