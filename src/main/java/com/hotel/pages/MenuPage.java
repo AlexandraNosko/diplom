@@ -4,16 +4,22 @@ import com.hotel.models.Room;
 import com.hotel.models.Stage;
 import com.hotel.repositories.RoomRepository;
 import com.hotel.repositories.StageRepository;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
 import org.springframework.data.domain.Example;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +40,8 @@ public class MenuPage implements Serializable {
     private Room selectedRoom;
 
     private String phoneNumber;
+
+    private Date cleaningDate;
 
     @PostConstruct
     public void init() {
@@ -79,6 +87,33 @@ public class MenuPage implements Serializable {
         }
 
         return room.getNumber() + prefix;
+    }
+
+    public Date getCleaningDate() {
+        return cleaningDate;
+    }
+
+    public void setCleaningDate(Date cleaningDate) {
+        this.cleaningDate = cleaningDate;
+    }
+
+    public void sendSms() {
+        String ACCOUNT_SID = "AC5063e9d84a39c51465a997ad37bcdc9a";
+        String AUTH_TOKEN = "75f1e5dc14555fbba8dca62da0fb6875";
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        try {
+            Message message = Message.creator(
+                    new PhoneNumber("+380636548313"),
+                    new PhoneNumber("+18087934933"), "Прошу вас убрать комнату 10го числа").create();
+            System.out.println(message.getSid());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                "Смс было отправлено", null));
     }
 
     public String getSelectedRoomNumber() {
