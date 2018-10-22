@@ -133,10 +133,12 @@
                     <f:selectItem itemValue="+380636548313" itemLabel="+380636548313"/>
                 </p:selectOneMenu>
                 <p:outputLabel value="Дата уборки:"/>
-                <p:calendar value="#{calendarView.date10}" pattern="dd/mm/yyyy HH:mm"/>
+                <p:calendar value="#{menuPage.cleaningDate}" pattern="dd/mm/yyyy HH:mm"/>
             </p:panelGrid>
-            <p:commandButton value="Вызвать уборщицу"
-                             style="margin-left: 41%; margin-top: 30px"/>
+
+            <p:commandButton value="Вызвать уборщицу" action="#{menuPage.sendSms}"
+                             style="margin-left: 41%; margin-top: 30px"
+                             oncomplete="PF('callCleaning').hide();"/>
         </h:form>
     </p:dialog>
 
