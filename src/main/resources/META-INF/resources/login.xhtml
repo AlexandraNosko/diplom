@@ -12,23 +12,31 @@
 </h:head>
 
 <h:body style="background: linear-gradient(#aabee5, #e3ffe5); margin-bottom: 28%">
-    <p:growl id="growl1" life="5000" keepAlive="true" />
 
-            <h:form id="form1">
-                <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
-                    <p:outputLabel value="Имя:"/>
-                    <p:inputText value="#{loginPage.login}"/>
+    <f:metadata>
+        <f:viewParam name="error" value="#{loginPage.error}"/>
+        <f:viewAction action="#{loginPage.showError}"/>
+    </f:metadata>
 
-                    <p:outputLabel value="Пароль:"/>
-                    <p:password value="#{loginPage.password}"/>
+    <p:growl id="growl1" life="5000" keepAlive="true"/>
 
-                </p:panelGrid>
-                <br/>
-                <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto;">
-                    <p:commandLink value="Вход" update="form1, growl1" action="#{loginPage.doLogin}"/>
-                </p:panelGrid>
+    <h:form prependId="false">
 
-            </h:form>
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
+            <p:outputLabel value="Имя:"/>
+            <p:inputText id="username"/>
+
+            <p:outputLabel value="Пароль:"/>
+            <p:password id="password"/>
+
+        </p:panelGrid>
+        <br/>
+
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto;">
+            <p:commandLink value="Вход" ajax="false"/>
+            <p:commandLink partialSubmit="true" value="Зарегистрироваться" onclick="window.location.href='/registration.xhtml'"/>
+        </p:panelGrid>
+    </h:form>
 
 </h:body>
 </html>
