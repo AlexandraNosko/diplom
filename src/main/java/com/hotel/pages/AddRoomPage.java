@@ -104,11 +104,11 @@ public class AddRoomPage {
             sendMessage("Введите номер комнаты");
             return null;
         }
-        if (roomType == null){
+        if (roomType == null) {
             sendMessage("Введите тип комнаты");
             return null;
         }
-        if (totalNumberOfSeats == null){
+        if (totalNumberOfSeats == null) {
             sendMessage("Введите колличество мест");
             return null;
         }

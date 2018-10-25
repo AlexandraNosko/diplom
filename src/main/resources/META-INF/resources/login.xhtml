@@ -31,11 +31,12 @@
 
         </p:panelGrid>
         <br/>
+        <p:commandButton value="Вход" ajax="false" style="margin-left: 48%; margin-bottom: 10px"/>
+        <br/>
+        <p:commandLink partialSubmit="true" value="Зарегистрироваться"
+                       onclick="window.location.href='/registration.xhtml'"
+                       style="margin-left: 46%; color: black"/>
 
-        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto;">
-            <p:commandLink value="Вход" ajax="false"/>
-            <p:commandLink partialSubmit="true" value="Зарегистрироваться" onclick="window.location.href='/registration.xhtml'"/>
-        </p:panelGrid>
     </h:form>
 
 </h:body>

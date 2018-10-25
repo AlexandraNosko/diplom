@@ -13,25 +13,23 @@
 
 <h:body style="background: linear-gradient(#aabee5, #e3ffe5); margin-bottom: 25%">
     <p:growl id="growl1" life="5000" keepAlive="true"/>
-            <h:form id="form1">
-                <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
-                    <p:outputLabel value="Имя:"/>
-                    <p:inputText value="#{registrationPage.name}"/>
+    <h:form id="form1">
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
+            <p:outputLabel value="Имя:"/>
+            <p:inputText value="#{registrationPage.name}"/>
 
-                    <p:outputLabel value="Пароль:"/>
-                    <p:password value="#{registrationPage.password}"/>
+            <p:outputLabel value="Пароль:"/>
+            <p:password value="#{registrationPage.password}"/>
 
-                    <p:outputLabel value="Повторите пароль:"/>
-                    <p:password value="#{registrationPage.verifyPassword}"/>
+            <p:outputLabel value="Повторите пароль:"/>
+            <p:password value="#{registrationPage.verifyPassword}"/>
 
-                </p:panelGrid>
-                <br/>
-                <p:panelGrid columns="1" style="margin-left: auto; margin-right: auto;">
-                    <p:commandLink value="Регистрация" update="form1, growl1"
-                                   action="#{registrationPage.saveUserInformation}"/>
-                </p:panelGrid>
+        </p:panelGrid>
+        <br/>
+        <p:commandButton style="margin-left: 46%" value="Регистрация" update="form1, growl1"
+                         action="#{registrationPage.saveUserInformation}"/>
 
-            </h:form>
+    </h:form>
 
 </h:body>
 </html>

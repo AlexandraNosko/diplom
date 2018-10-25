@@ -19,6 +19,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -102,10 +103,12 @@ public class MenuPage implements Serializable {
         String AUTH_TOKEN = "75f1e5dc14555fbba8dca62da0fb6875";
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
+        String formattedDate = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(cleaningDate);
         try {
             Message message = Message.creator(
                     new PhoneNumber("+380636548313"),
-                    new PhoneNumber("+18087934933"), "Прошу вас убрать комнату 10го числа").create();
+                    new PhoneNumber("+18087934933"), "Прошу вас убрать комнату "
+                            + formattedDate).create();
             System.out.println(message.getSid());
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,7 +116,7 @@ public class MenuPage implements Serializable {
 
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-                "Смс было отправлено", null));
+                "СМС было отправлено", null));
     }
 
     public String getSelectedRoomNumber() {

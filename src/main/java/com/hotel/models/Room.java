@@ -65,7 +65,7 @@ public class Room {
         return guestsCount;
     }
 
-    public Integer getDaysLeftToDearture() {
+    public Integer getDaysLeftToDeparture() {
         if (departureDate == null) {
             return 0;
         }
@@ -88,6 +88,7 @@ public class Room {
     public boolean isBusy() {
         return arrivalDate != null && departureDate != null;
     }
+
     public Integer getTotalNumberOfSeats() {
         return totalNumberOfSeats;
     }
