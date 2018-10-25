@@ -26,9 +26,9 @@
             </p:panelMenu>
 
             <p:button value="Добавить этаж" onclick="PF('addStageDialog').show(); return false;"
-                      style="margin-top: 70%"/>
+                      style="margin-top: 50%"/>
             <p:button value="Добавить комнату" onclick="PF('addRoomDialog').show(); return false;"
-                      style="margin-top: 70%"/>
+                      style="margin-top: 50%"/>
 
         </p:layoutUnit>
         <p:layoutUnit position="center">
@@ -66,7 +66,7 @@
                             </p:outputLabel>
                         </div>
                         <div class="ui-g-4">Осталось дней до выселения:
-                            <p:outputLabel value="#{menuPage.selectedRoom.daysLeftToDearture}"/>
+                            <p:outputLabel value="#{menuPage.selectedRoom.daysLeftToDeparture}"/>
                         </div>
                     </div>
                     <div class="ui-g">
@@ -76,7 +76,7 @@
                             </p:outputLabel>
                         </div>
                     </div>
-                    <div class="ui-g" style="margin-top: 10px">
+                    <div class="ui-g" style="margin-top: 30px">
                         <div class="ui-g-4">Стоимость номера:
                             <p:outputLabel value="#{menuPage.selectedRoom.cost} грн."/>
                         </div>
@@ -124,7 +124,7 @@
                     <f:selectItem itemValue="+380636548313" itemLabel="+380636548313"/>
                 </p:selectOneMenu>
                 <p:outputLabel value="Дата уборки:"/>
-                <p:calendar value="#{menuPage.cleaningDate}" pattern="dd/mm/yyyy HH:mm"/>
+                <p:calendar value="#{menuPage.cleaningDate}" pattern="dd-MM-yyyy HH:mm"/>
             </p:panelGrid>
 
             <p:commandButton value="Вызвать уборщицу" action="#{menuPage.sendSms}"
