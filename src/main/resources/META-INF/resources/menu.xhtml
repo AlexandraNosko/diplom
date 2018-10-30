@@ -65,19 +65,22 @@
                                 <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
                             </p:outputLabel>
                         </div>
-                        <div class="ui-g-4">Осталось дней до выселения:
-                            <p:outputLabel value="#{menuPage.selectedRoom.daysLeftToDeparture}"/>
+                        <div class="ui-g-4">Количество дней проживания:
+                            <p:outputLabel value="#{menuPage.selectedRoom.daysOfStay}"/>
                         </div>
                     </div>
                     <div class="ui-g">
-                        <div class="ui-g-6">Дата выселения:
+                        <div class="ui-g-4">Дата выселения:
                             <p:outputLabel value="#{menuPage.selectedRoom.departureDate}">
                                 <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
                             </p:outputLabel>
                         </div>
+                        <div class="ui-g-4">Осталось дней до выселения:
+                            <p:outputLabel value="#{menuPage.selectedRoom.daysLeftToDeparture}"/>
+                        </div>
                     </div>
                     <div class="ui-g" style="margin-top: 30px">
-                        <div class="ui-g-4">Стоимость номера:
+                        <div class="ui-g-4">Стоимость номера за сутки:
                             <p:outputLabel value="#{menuPage.selectedRoom.cost} грн."/>
                         </div>
                     </div>

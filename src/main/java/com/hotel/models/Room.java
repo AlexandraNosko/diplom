@@ -77,9 +77,21 @@ public class Room {
         return daysdiff;
     }
 
+    public Integer getDaysOfStay() {
+        if (departureDate == null && arrivalDate == null) {
+            return 0;
+        }
+        int daysdiff = 0;
+        long diff = departureDate.getTime() - arrivalDate.getTime();
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+        daysdiff = (int) diffDays;
+        return daysdiff;
+    }
+
+
     public Integer getMoneyLeftToPaid() {
         if (cost != null && paid != null) {
-            return cost - paid;
+            return cost * getDaysOfStay() - paid;
         } else {
             return 0;
         }
