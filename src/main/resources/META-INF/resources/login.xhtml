@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Login</title>
+</h:head>
+
+<h:body style="background: linear-gradient(#aabee5, #e3ffe5); margin-bottom: 28%">
+
+    <f:metadata>
+        <f:viewParam name="error" value="#{loginPage.error}"/>
+        <f:viewAction action="#{loginPage.showError}"/>
+    </f:metadata>
+
+    <p:growl id="growl1" life="5000" keepAlive="true"/>
+
+    <h:form prependId="false">
+
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15% ">
+            <p:outputLabel value="Имя:"/>
+            <p:inputText id="username"/>
+
+            <p:outputLabel value="Пароль:"/>
+            <p:password id="password"/>
+
+        </p:panelGrid>
+        <br/>
+
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto;">
+            <p:commandLink value="Вход" ajax="false"/>
+            <p:commandLink partialSubmit="true" value="Зарегистрироваться" onclick="window.location.href='/registration.xhtml'"/>
+        </p:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

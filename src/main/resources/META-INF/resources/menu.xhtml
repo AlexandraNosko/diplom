@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Menu</title>
+</h:head>
+<h:body>
+    <p:growl>
+        <p:autoUpdate/>
+    </p:growl>
+
+    <f:metadata>
+        <f:viewParam name="room" value="#{menuPage.selectedRoomNumber}"/>
+        <f:viewAction action="#{menuPage.selectRoomFromDatabase}"/>
+    </f:metadata>
+
+    <p:layout fullPage="true">
+        <p:layoutUnit position="west" resizable="true" closable="true" collapsible="true">
+            <p:panelMenu style="width:300px" model="#{menuPage.menu}">
+            </p:panelMenu>
+
+            <p:button value="Добавить этаж" onclick="PF('addStageDialog').show(); return false;"
+                      style="margin-top: 70%"/>
+            <p:button value="Добавить комнату" onclick="PF('addRoomDialog').show(); return false;"
+                      style="margin-top: 70%"/>
+
+        </p:layoutUnit>
+        <p:layoutUnit position="center">
+            <p:layoutUnit position="center" resizable="true" closable="true" collapsible="true">
+                <h:form>
+                    <div class="ui-g">
+                        <div class="ui-g-2"
+                             style="padding-top: 5px; padding-bottom: 5px; margin-left: auto; margin-right: auto">
+                            <h3>Комната #{menuPage.selectedRoomNumber}</h3>
+                        </div>
+                    </div>
+
+                    <div class="ui-g">
+                        <div class="ui-g-6">Тип комнаты:
+                            <p:outputLabel value="#{menuPage.selectedRoom.roomType}"/>
+                        </div>
+                        <div class="ui-g-6">
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <p:selectManyCheckbox columns="2" layout="grid">
+                                    <f:selectItem itemLabel="Требуется уборка" itemValue="1"/>
+                                </p:selectManyCheckbox>
+                                <p:button value="отправить CMC" onclick="PF('callCleaning').show(); return false;"/>
+                            </h:panelGrid>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-6">Число проживающих:
+                            <p:outputLabel value="#{menuPage.selectedRoom.guestsCount}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g" style="margin-top: 30px">
+                        <div class="ui-g-4">Дата заселения:
+                            <p:outputLabel value="#{menuPage.selectedRoom.arrivalDate}">
+                                <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
+                            </p:outputLabel>
+                        </div>
+                        <div class="ui-g-4">Осталось дней до выселения:
+                            <p:outputLabel value="#{menuPage.selectedRoom.daysLeftToDearture}"/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-6">Дата выселения:
+                            <p:outputLabel value="#{menuPage.selectedRoom.departureDate}">
+                                <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
+                            </p:outputLabel>
+                        </div>
+                    </div>
+                    <div class="ui-g" style="margin-top: 10px">
+                        <div class="ui-g-4">Стоимость номера:
+                            <p:outputLabel value="#{menuPage.selectedRoom.cost} грн."/>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-4">Оплачено:
+                            <p:outputLabel value="#{menuPage.selectedRoom.paid} грн."/>
+                        </div>
+                        <div class="ui-g-4">Осталось оплатить:
+                            <p:outputLabel value="#{menuPage.selectedRoom.moneyLeftToPaid}"/> грн.
+                        </div>
+                    </div>
+                </h:form>
+
+            </p:layoutUnit>
+
+            <p:layout>
+                <p:layoutUnit position="south">
+                    <h:form>
+                        <h:panelGrid columns="5" cellpadding="5" style="height: 250px;
+                        margin-left: auto; margin-right: auto">
+                            <h:outputLabel value="Дата заезда:"/>
+                            <p:calendar value="#{reserveRoomPage.arrivalDate}" mode="inline"/>
+                            <h:outputLabel value="Дата выезда:"/>
+                            <p:calendar value="#{reserveRoomPage.departureDate}" mode="inline"/>
+                            <p:commandButton value="Забронировать" icon="ui-icon-check"
+                                             disabled="#{menuPage.selectedRoom.busy}"
+                                             update="reserveRoomForm"
+                                             onsuccess="PF('reserveRoomDialog').show();"/>
+                        </h:panelGrid>
+                    </h:form>
+                </p:layoutUnit>
+            </p:layout>
+        </p:layoutUnit>
+    </p:layout>
+
+    <p:dialog widgetVar="callCleaning" modal="true" closable="true" resizable="true"
+              width="800" height="200">
+        <h:form>
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+                <p:outputLabel value="Номер комнаты:"/>
+                <p:outputLabel value="#{menuPage.selectedRoomNumber}"/>
+                <p:outputLabel value="Номер телефона:"/>
+                <p:selectOneMenu value="#{menuPage.phoneNumber}" style="width: 82%">
+                    <f:selectItem itemValue="+380636548313" itemLabel="+380636548313"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Дата уборки:"/>
+                <p:calendar value="#{menuPage.cleaningDate}" pattern="dd/mm/yyyy HH:mm"/>
+            </p:panelGrid>
+
+            <p:commandButton value="Вызвать уборщицу" action="#{menuPage.sendSms}"
+                             style="margin-left: 41%; margin-top: 30px"
+                             oncomplete="PF('callCleaning').hide();"/>
+        </h:form>
+    </p:dialog>
+
+    <p:dialog widgetVar="addStageDialog" modal="true" closable="true" resizable="true" width="800" height="200">
+        <h:form>
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+                <p:outputLabel value="Номер этажа:"/>
+                <p:inputText value="#{addStagePage.stageNumber}"/>
+            </p:panelGrid>
+            <p:commandButton value="Добавить этаж" action="#{addStagePage.addStage}"
+                             style="margin-left: 41%; margin-top: 30px"/>
+
+
+        </h:form>
+    </p:dialog>
+
+    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="800" height="350">
+        <h:form id="addRoomDialogForm">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+
+                <p:outputLabel value="Этаж:"/>
+                <p:selectOneMenu value="#{addRoomPage.selectedStageId}" style="width: 82%">
+                    <f:selectItems value="#{addRoomPage.stageList}"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Номер комнаты:"/>
+                <p:inputText value="#{addRoomPage.roomNumber}"/>
+
+                <p:outputLabel value="Тип комнаты:"/>
+                <p:selectOneMenu value="#{addRoomPage.roomType}" style="width: 82%">
+                    <f:selectItem itemLabel=" " itemValue=" "/>
+                    <f:selectItem itemLabel="VIP" itemValue="VIP"/>
+                    <f:selectItem itemLabel="STANDART" itemValue="STANDART"/>
+                    <f:selectItem itemLabel="ECONOM" itemValue="ECONOM"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Количество мест:"/>
+                <p:inputText value="#{addRoomPage.totalNumberOfSeats}"/>
+
+            </p:panelGrid>
+            <p:commandButton value="Добавить комнату" action="#{addRoomPage.addRoom}"
+                             style="margin-top: 50px; margin-left: 40%"/>
+        </h:form>
+    </p:dialog>
+
+    <p:dialog widgetVar="reserveRoomDialog" modal="true" closable="true" resizable="true" width="800" height="200">
+        <h:form id="reserveRoomForm">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+
+                <p:outputLabel value="Дата прибытия:"/>
+                <p:outputLabel value="#{reserveRoomPage.arrivalDate}">
+                    <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
+                </p:outputLabel>
+
+                <p:outputLabel value="Дата выселения:"/>
+                <p:outputLabel value="#{reserveRoomPage.departureDate}">
+                    <f:convertDateTime type="date" pattern="dd-MM-yyy"/>
+                </p:outputLabel>
+
+                <p:outputLabel value="Комната:"/>
+                <p:outputLabel value="#{menuPage.selectedRoom.number}"/>
+
+                <p:outputLabel value="Число гостей:"/>
+                <p:inputText value="#{reserveRoomPage.guests}"/>
+
+                <br/>
+                <p:commandButton value="Подтвердить бронирование" action="#{reserveRoomPage.reserveRoom}"
+                                 icon="ui-icon-check"/>
+            </p:panelGrid>
+        </h:form>
+    </p:dialog>
+</h:body>
+</html>
