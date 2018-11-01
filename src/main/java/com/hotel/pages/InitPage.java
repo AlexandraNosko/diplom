@@ -39,8 +39,8 @@ public class InitPage {
         stage.getRooms().add(room4);
 
         room1.setNumber("100");
-        room1.setArrivalDate(DateUtils.addDays(new Date(), -20));
-        room1.setDepartureDate(DateUtils.addDays(new Date(), 20));
+        room1.setArrivalDate(DateUtils.addDays(new Date(), -2));
+        room1.setDepartureDate(DateUtils.addDays(new Date(), 10));
         room1.setGuestsCount(2);
         room1.setRoomType(RoomType.ECONOM);
         room1.setTotalNumberOfSeats(6);
@@ -55,7 +55,7 @@ public class InitPage {
         room2.setRoomType(RoomType.ECONOM);
         room2.setTotalNumberOfSeats(6);
         room2.setCost(500);
-        room2.setPaid(400);
+        room2.setPaid(1000);
         room2.setStage(stage);
 
         room3.setNumber("102");
@@ -146,7 +146,7 @@ public class InitPage {
         room1.setGuestsCount(0);
         room1.setRoomType(RoomType.VIP);
         room1.setTotalNumberOfSeats(2);
-        room1.setCost(2000);
+        room1.setCost(800);
         room1.setPaid(0);
         room1.setStage(stage);
 
@@ -156,7 +156,7 @@ public class InitPage {
         room2.setGuestsCount(3);
         room2.setRoomType(RoomType.VIP);
         room2.setTotalNumberOfSeats(5);
-        room2.setCost(3000);
+        room2.setCost(900);
         room2.setPaid(2500);
         room2.setStage(stage);
 

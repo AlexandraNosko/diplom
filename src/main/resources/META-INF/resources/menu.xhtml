@@ -117,9 +117,9 @@
     </p:layout>
 
     <p:dialog widgetVar="callCleaning" modal="true" closable="true" resizable="true"
-              width="800" height="200">
+              width="600" height="200">
         <h:form>
-            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top: 20px">
                 <p:outputLabel value="Номер комнаты:"/>
                 <p:outputLabel value="#{menuPage.selectedRoomNumber}"/>
                 <p:outputLabel value="Номер телефона:"/>
@@ -131,14 +131,14 @@
             </p:panelGrid>
 
             <p:commandButton value="Вызвать уборщицу" action="#{menuPage.sendSms}"
-                             style="margin-left: 41%; margin-top: 30px"
+                             style="margin-left: 38%; margin-top: 30px"
                              oncomplete="PF('callCleaning').hide();"/>
         </h:form>
     </p:dialog>
 
-    <p:dialog widgetVar="addStageDialog" modal="true" closable="true" resizable="true" width="800" height="200">
+    <p:dialog widgetVar="addStageDialog" modal="true" closable="true" resizable="true" width="600" height="200">
         <h:form>
-            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top: 20px;">
                 <p:outputLabel value="Номер этажа:"/>
                 <p:inputText value="#{addStagePage.stageNumber}"/>
             </p:panelGrid>
@@ -149,9 +149,9 @@
         </h:form>
     </p:dialog>
 
-    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="800" height="350">
+    <p:dialog widgetVar="addRoomDialog" modal="true" closable="true" resizable="true" width="600" height="350">
         <h:form id="addRoomDialogForm">
-            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top: 20px">
 
                 <p:outputLabel value="Этаж:"/>
                 <p:selectOneMenu value="#{addRoomPage.selectedStageId}" style="width: 82%">
@@ -177,13 +177,13 @@
 
             </p:panelGrid>
             <p:commandButton value="Добавить комнату" action="#{addRoomPage.addRoom}"
-                             style="margin-top: 50px; margin-left: 40%"/>
+                             style="margin-top: 50px; margin-left: 38%"/>
         </h:form>
     </p:dialog>
 
-    <p:dialog widgetVar="reserveRoomDialog" modal="true" closable="true" resizable="true" width="800" height="200">
+    <p:dialog widgetVar="reserveRoomDialog" modal="true" closable="true" resizable="true" width="600" height="300">
         <h:form id="reserveRoomForm">
-            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto">
+            <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top: 20px">
 
                 <p:outputLabel value="Дата прибытия:"/>
                 <p:outputLabel value="#{reserveRoomPage.arrivalDate}">
@@ -206,7 +206,7 @@
 
             </p:panelGrid>
             <p:commandButton value="Подтвердить бронирование" action="#{reserveRoomPage.reserveRoom}"
-                             icon="ui-icon-check" style="margin-left: 40%"/>
+                             icon="ui-icon-check" style="margin-left: 32%; margin-top: 50px"/>
         </h:form>
     </p:dialog>
 </h:body>
