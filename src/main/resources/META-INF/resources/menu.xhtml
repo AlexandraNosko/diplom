@@ -169,6 +169,9 @@
                     <f:selectItem itemLabel="ECONOM" itemValue="ECONOM"/>
                 </p:selectOneMenu>
 
+                <p:outputLabel value="Цена номера:"/>
+                <p:inputText value="#{addRoomPage.cost}"/>
+
                 <p:outputLabel value="Количество мест:"/>
                 <p:inputText value="#{addRoomPage.totalNumberOfSeats}"/>
 
@@ -198,10 +201,12 @@
                 <p:outputLabel value="Число гостей:"/>
                 <p:inputText value="#{reserveRoomPage.guests}"/>
 
-                <br/>
-                <p:commandButton value="Подтвердить бронирование" action="#{reserveRoomPage.reserveRoom}"
-                                 icon="ui-icon-check"/>
+                <p:outputLabel value="Внесена оплата:"/>
+                <p:inputText value="#{reserveRoomPage.paid}"/>
+
             </p:panelGrid>
+            <p:commandButton value="Подтвердить бронирование" action="#{reserveRoomPage.reserveRoom}"
+                             icon="ui-icon-check" style="margin-left: 40%"/>
         </h:form>
     </p:dialog>
 </h:body>

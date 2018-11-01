@@ -24,6 +24,8 @@ public class ReserveRoomPage {
 
     private Integer guests;
 
+    private Integer paid;
+
     public Date getArrivalDate() {
         return arrivalDate;
     }
@@ -48,11 +50,20 @@ public class ReserveRoomPage {
         this.guests = guests;
     }
 
+    public Integer getPaid() {
+        return paid;
+    }
+
+    public void setPaid(Integer paid) {
+        this.paid = paid;
+    }
+
     public String reserveRoom() {
         Room room = menuPage.getSelectedRoom();
         room.setArrivalDate(arrivalDate);
         room.setDepartureDate(departureDate);
         room.setGuestsCount(guests);
+        room.setPaid(paid);
         roomRepository.save(room);
 
         return "goToMenu";

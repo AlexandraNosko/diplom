@@ -33,6 +33,8 @@ public class AddRoomPage {
 
     private String selectedStageId;
 
+    private Integer cost;
+
     private Map<String, String> stageList = new HashMap<>();
 
     @PostConstruct
@@ -98,6 +100,13 @@ public class AddRoomPage {
         this.stageRepository = stageRepository;
     }
 
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
 
     public String addRoom() {
         if (roomNumber == null || roomNumber.equals("")) {
@@ -112,11 +121,16 @@ public class AddRoomPage {
             sendMessage("Введите колличество мест");
             return null;
         }
+        if (cost == null){
+            sendMessage("Введите суточную стоимость номера");
+            return null;
+        }
 
         Room room = new Room();
         room.setTotalNumberOfSeats(totalNumberOfSeats);
         room.setNumber(roomNumber);
         room.setRoomType(roomType);
+        room.setCost(cost);
         room.setStage(stageRepository.findById(Long.parseLong(selectedStageId)).get());
         roomRepository.save(room);
 
